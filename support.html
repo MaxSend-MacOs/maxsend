@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MaxSend support and FAQ">
+  <title>Support — MaxSend</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="index.html">
+        <span class="logo__mark" aria-hidden="true">✉</span>
+        MaxSend
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <a href="support.html" class="is-active">Support</a>
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="page-hero__inner">
+      <h1>Support</h1>
+      <p class="meta">Help with MaxSend on Mac and iPad</p>
+    </div>
+  </div>
+
+  <main class="prose">
+    <div class="callout">
+      <p>Need help? Check the FAQ below. For billing and downloads, use Apple Support. For MaxSend-specific questions, email us.</p>
+    </div>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:support@codewithik.com">support@codewithik.com</a></p>
+    </section>
+  </main>
+
+  <div class="faq">
+    <details>
+      <summary>What do I need to start sending?</summary>
+      <p>An SMTP account from your email provider or IT team (host, port, username, password), plus a recipient list and message content. Use Test Connection in SMTP Accounts before launching a campaign.</p>
+    </details>
+    <details>
+      <summary>Does MaxSend guarantee inbox delivery?</summary>
+      <p>No. MaxSend sends well-formed mail through your server, but inbox placement depends on SPF/DKIM/DMARC, domain reputation, list quality, and recipient server policies. See the in-app Deliverability guide.</p>
+    </details>
+    <details>
+      <summary>Where is my data stored?</summary>
+      <p>Campaigns and recipients are stored locally on your Mac or iPad in SQLite. SMTP passwords are in the system Keychain. Data is not uploaded to a MaxSend cloud service.</p>
+    </details>
+    <details>
+      <summary>Why do I see "503 sender already given" or RCPT rejections?</summary>
+      <p>503 errors often mean the SMTP session needed a reset after a failed recipient (fixed in recent versions). 550 rejections usually mean the receiving server rejected your From address or recipient—check that your From mailbox exists and your domain has proper authentication.</p>
+    </details>
+    <details>
+      <summary>Can I pause and resume a large send?</summary>
+      <p>Yes. Sending state is persisted in the local database. You can pause, quit the app, and resume later from the Send tab.</p>
+    </details>
+    <details>
+      <summary>Is MaxSend available on iPhone?</summary>
+      <p>MaxSend is built for iPad and Mac. iPhone is not currently supported.</p>
+    </details>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div>
+        <a class="logo" href="index.html">
+          <span class="logo__mark" aria-hidden="true">✉</span>
+          MaxSend
+        </a>
+        <p>We're here to help you send responsibly.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="terms.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="site-footer__bottom">© 2026 MaxSend · Code With IK</p>
+  </footer>
+</body>
+</html>
