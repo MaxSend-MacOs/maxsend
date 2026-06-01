@@ -1,84 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page-light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="MaxSend support and FAQ">
+  <meta name="description" content="MaxSend support, FAQ, and contact.">
+  <meta name="theme-color" content="#faf9fc">
   <title>Support — MaxSend</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="logo" href="index.html">
-        <span class="logo__mark" aria-hidden="true">✉</span>
+  <header class="header page-light is-scrolled" data-header>
+    <div class="container header__inner">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" width="38" height="38" alt="">
         MaxSend
       </a>
-      <nav class="nav" aria-label="Main">
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav" data-nav-menu aria-label="Main">
         <a href="index.html">Home</a>
         <a href="support.html" class="is-active">Support</a>
         <a href="terms.html">Terms</a>
         <a href="privacy.html">Privacy</a>
+        <a class="btn-nav" href="https://apps.apple.com/app/maxsend" rel="noopener">Get the app</a>
       </nav>
     </div>
   </header>
 
   <div class="page-hero">
-    <div class="page-hero__inner">
+    <div class="container">
       <h1>Support</h1>
       <p class="meta">Help with MaxSend on Mac and iPad</p>
     </div>
   </div>
 
-  <main class="prose">
-    <div class="callout">
-      <p>Need help? Check the FAQ below. For billing and downloads, use Apple Support. For MaxSend-specific questions, email us.</p>
+  <main class="container page-main">
+    <div class="intro-card">
+      <p>Find answers below or reach out by email. For App Store billing or download issues, use <a href="https://support.apple.com">Apple Support</a>.</p>
     </div>
 
-    <section>
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:support@codewithik.com">support@codewithik.com</a></p>
-    </section>
+    <div class="support-grid support-section">
+      <aside class="contact-card">
+        <h2>Contact us</h2>
+        <a class="email" href="mailto:support@codewithik.com">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          support@codewithik.com
+        </a>
+        <p>We typically respond within 2–3 business days.</p>
+        <p style="margin-top: 1.25rem;"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms</a></p>
+      </aside>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>What do I need to start sending?</summary>
+          <div class="faq-item__body">
+            <p>An SMTP account from your email provider or IT team (host, port, username, password), plus a recipient list and message content. Use <strong>Test Connection</strong> in SMTP Accounts before launching a campaign.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Does MaxSend guarantee inbox delivery?</summary>
+          <div class="faq-item__body">
+            <p>No. MaxSend sends well-formed mail through your server, but inbox placement depends on SPF/DKIM/DMARC, domain reputation, list quality, and recipient policies. See the in-app <strong>Deliverability</strong> guide.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Where is my data stored?</summary>
+          <div class="faq-item__body">
+            <p>Campaigns and recipients live in a local SQLite database on your Mac or iPad. SMTP passwords are in the system Keychain. Nothing is uploaded to a MaxSend cloud service.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Why do I see SMTP errors like 503 or 550?</summary>
+          <div class="faq-item__body">
+            <p><strong>503 sender already given</strong> usually means the server needed a session reset after a failed send—update to the latest app version. <strong>550 rejections</strong> often mean the receiving server rejected your From address or recipient; verify your From mailbox exists and your domain has SPF/DKIM/DMARC set up.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I pause and resume a large send?</summary>
+          <div class="faq-item__body">
+            <p>Yes. Send state is saved in the local database. Pause from the Send tab, quit the app if needed, and resume later.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Is MaxSend available on iPhone?</summary>
+          <div class="faq-item__body">
+            <p>MaxSend is optimized for <strong>iPad</strong> and <strong>Mac</strong>. iPhone is not supported at this time.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I import millions of recipients?</summary>
+          <div class="faq-item__body">
+            <p>Use a CSV file on the Recipients tab. MaxSend streams the file in chunks, validates emails, maps columns to merge fields, and deduplicates within each campaign.</p>
+          </div>
+        </details>
+      </div>
+    </div>
   </main>
 
-  <div class="faq">
-    <details>
-      <summary>What do I need to start sending?</summary>
-      <p>An SMTP account from your email provider or IT team (host, port, username, password), plus a recipient list and message content. Use Test Connection in SMTP Accounts before launching a campaign.</p>
-    </details>
-    <details>
-      <summary>Does MaxSend guarantee inbox delivery?</summary>
-      <p>No. MaxSend sends well-formed mail through your server, but inbox placement depends on SPF/DKIM/DMARC, domain reputation, list quality, and recipient server policies. See the in-app Deliverability guide.</p>
-    </details>
-    <details>
-      <summary>Where is my data stored?</summary>
-      <p>Campaigns and recipients are stored locally on your Mac or iPad in SQLite. SMTP passwords are in the system Keychain. Data is not uploaded to a MaxSend cloud service.</p>
-    </details>
-    <details>
-      <summary>Why do I see "503 sender already given" or RCPT rejections?</summary>
-      <p>503 errors often mean the SMTP session needed a reset after a failed recipient (fixed in recent versions). 550 rejections usually mean the receiving server rejected your From address or recipient—check that your From mailbox exists and your domain has proper authentication.</p>
-    </details>
-    <details>
-      <summary>Can I pause and resume a large send?</summary>
-      <p>Yes. Sending state is persisted in the local database. You can pause, quit the app, and resume later from the Send tab.</p>
-    </details>
-    <details>
-      <summary>Is MaxSend available on iPhone?</summary>
-      <p>MaxSend is built for iPad and Mac. iPhone is not currently supported.</p>
-    </details>
-  </div>
-
-  <footer class="site-footer">
-    <div class="site-footer__inner">
+  <footer class="footer">
+    <div class="container footer__grid">
       <div>
-        <a class="logo" href="index.html">
-          <span class="logo__mark" aria-hidden="true">✉</span>
+        <a class="brand" href="index.html">
+          <img src="assets/logo.svg" width="38" height="38" alt="">
           MaxSend
         </a>
-        <p>We're here to help you send responsibly.</p>
+        <p class="footer__tagline">We're here to help you send responsibly.</p>
       </div>
       <div>
         <h4>Product</h4>
@@ -95,7 +126,12 @@
         </ul>
       </div>
     </div>
-    <p class="site-footer__bottom">© 2026 MaxSend · Code With IK</p>
+    <div class="container footer__bar">
+      <span>© 2026 MaxSend · </span>
+      <span><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></span>
+    </div>
   </footer>
+
+  <script src="js/site.js"></script>
 </body>
 </html>
